@@ -15,3 +15,5 @@ module.exports = {
   env: env,
   dburl: dburl
 };
+
+//komt nodemodules erbij?
