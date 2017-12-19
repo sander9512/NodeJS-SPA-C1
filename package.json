@@ -1,0 +1,27 @@
+{
+  "name": "nodejs-spa-c1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sander9512/NodeJS-SPA-C1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sander9512/NodeJS-SPA-C1/issues"
+  },
+  "homepage": "https://github.com/sander9512/NodeJS-SPA-C1#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mocha": "^4.0.1",
+    "mongoose": "^4.13.7",
+    "morgan": "^1.9.0",
+    "nodemon": "^1.13.3"
+  }
+}
