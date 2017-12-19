@@ -1,6 +1,6 @@
 var http = require('http');
 var express = require('express');
-var bodyparser = require('body-parser');
+var bodyParser = require('body-parser');
 var logger = require('morgan');
 
 var config = require('./config/env/env');
@@ -34,7 +34,7 @@ app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Credentials', true);
     // Pass to next layer of middleware
     next();
-
+});
 // app.use('/api', ...);
 
 // error handler express-jwt errors
