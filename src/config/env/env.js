@@ -6,6 +6,7 @@ var env = {
     dbPassword: process.env.DB_PASSWORD || '',
     dbDatabase: process.env.DB_DATABASE || 'sporthal_plannen',
 }
+test
 
 var dburl = process.env.NODE_ENV === 'production' ?
   'mongodb://' + env.dbUser + ':' + env.dbPassword + '@' + env.dbHost + ':' + env.dbPort + '/' + env.dbDatabase :
@@ -15,5 +16,3 @@ module.exports = {
   env: env,
   dburl: dburl
 };
-
-//komt nodemodules erbij?
