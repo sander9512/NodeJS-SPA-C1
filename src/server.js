@@ -2,6 +2,7 @@ var http = require('http');
 var express = require('express');
 var bodyParser = require('body-parser');
 var logger = require('morgan');
+var authroutes_v1 = require('./routes/authentication.routes.v1');
 var sporthalroutes_v1 = require('./routes/sporthalhuren.routes.v1');
 var config = require('./config/env/env');
 
@@ -39,6 +40,7 @@ app.use(function (req, res, next) {
 });
 //Routes
 app.use('/api/v1', sporthalroutes_v1);
+app.use('/api/v1', authroutes_v1);
 
 // error handler express-jwt errors
 app.use(function (err, req, res, next) {
