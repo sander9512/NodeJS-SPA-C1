@@ -11,6 +11,12 @@ var mongodb = require('./config/mongo.db');
 var app = express();
 module.exports = {};
 
+// app.use(session({
+//   secret: 'work hard',
+//   resave: true,
+//   saveUninitialized: false
+// }));
+
 app.use(bodyParser.urlencoded({
   'extended' : 'true'
 }));
