@@ -90,5 +90,15 @@ routes.get('/bookings/:id', function (req, res) {
         }
     })
 });
+routes.get('/bookings/hall/:id', function (req, res) {
+    request(webUrl + 'Bookings/Hall/' + req.params.id, { json: true}, (err, body) => {
+        if(err) {
+            return console.log(err);
+        } else {
+            res.status(200).json(body.body);
+        }
+    })
+
+})
 
 module.exports = routes;
