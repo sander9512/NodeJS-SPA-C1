@@ -6,6 +6,7 @@ var env = {
     dbPassword: process.env.DB_PASSWORD || '',
     dbDatabase: process.env.DB_DATABASE || 'sporthal_plannen',
 }
+var secretKey = "ApiSporthalPlannenC1SecretKey-123454321AbCd-";
 
 var dburl = process.env.NODE_ENV === 'production' ?
   'mongodb://' + env.dbUser + ':' + env.dbPassword + '@' + env.dbHost + ':' + env.dbPort + '/' + env.dbDatabase :
@@ -13,5 +14,6 @@ var dburl = process.env.NODE_ENV === 'production' ?
 
 module.exports = {
   env: env,
-  dburl: dburl
+  dburl: dburl,
+    secretKey: secretKey
 };

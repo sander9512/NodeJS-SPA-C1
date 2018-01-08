@@ -3,22 +3,22 @@ const Schema = mongoose.Schema;
 const bcrypt = require('bcryptjs');
 
 // personeel user , moet nog aangevuld worden
-
 const UserSchema = new Schema({
-  email: {
-    type: String,
-    unique: true,
-    required: true,
-    trim: true
-  },
-  password: {
-    type: String,
-    required: true,
-  },
-  role: {
-    type: String,
-    required: true
-  }
+        email: {
+            type: String,
+            unique: true,
+            required: true,
+            trim: true
+        },
+        password: {
+            type: String,
+            required: true,
+        },
+        role: {
+            type: String,
+            required: true
+        }
+    }
 );
 
 // password hash
