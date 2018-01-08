@@ -2,7 +2,7 @@ var express = require('express');
 var routes = express.Router();
 var request = require('request');
 //Pas deze webUrl aan aan jouw lokale port
-const webUrl = 'http://localhost:52002/api/v1/';
+const webUrl = 'http://localhost:49225/api/v1/';
 
 routes.get('/halls', function (req, res) {
     request(webUrl + 'Halls', { json: true}, (err, body) => {
@@ -22,6 +22,16 @@ routes.get('/halls/:id', function (req, res) {
         }
     })
 });
+//Zalen van specifieke proprietor ophalen
+routes.get('/halls/proprietor/:id', function (req, res) {
+    request(webUrl + 'Halls/Proprietor/' + req.params.id, { json: true }, (err, body) => {
+        if(err) {
+            return console.log(err);
+        } else {
+            res.status(200).json(body.body)
+        }
+    })
+})
 //Zalen in sporthal ophalen
 routes.get('/halls/:id/rooms', function (req, res) {
     request(webUrl + 'Halls/' + req.params.id + '/Rooms', { json: true}, (err, body) => {
