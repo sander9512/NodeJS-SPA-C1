@@ -1,31 +1,24 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// Deze model kan ook gebruikt worden voor de sluitingsdagen. Het is optioneel
-// om een activity of room (zaal) in te voeren. Zo kun je bijvoorbeeld aangeven
-// dat in zaal 2 basketball niet beschikbaar is. Bij een sluitingsdag laat je de
-// activity en room leeg en geef je dit aan in de description.
+// sportsHallId van de oude app, type is het onderhoudstype, bijvoorbeeld
+// zaal 2, object is het werkelijke object dat onderhoud nodig heeft, startTime
+// en endTime moeten in het aangegeven formaat, description is omschrijving van
+// het onderhoud.
 const MaintenanceSchema = new Schema({
-  hallName: {
-    type: String,
-    trim: true,
+  sportsHallId: {
+    type: Number,
     required: true
   },
-  city: {
+  maintenanceType: {
     type: String,
-    trim: true,
     required: true
   },
-  street: {
+  maintenanceObject: {
     type: String,
-    trim: true,
     required: true
   },
-  houseNumber: {
-    type: String,
-    trim: true,
-    required: true
-  },
+  // 11/20/2014 04:11 - formaat
   startTime: {
     type: Date,
     default: Date.now
@@ -34,17 +27,9 @@ const MaintenanceSchema = new Schema({
     type: Date,
     required: true
   },
-  activity: {
-    type: String,
-    trim: true
-  },
   description: {
     type: String,
     required: true
-  },
-  room: {
-    type: String,
-    trim: true
   }
 });
 

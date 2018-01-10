@@ -8,10 +8,10 @@ const Maintenance = require('../models/sportsHallMaintenance');
 
 routes.post('/maintenance', function(req, res) {
   const maintenance = new Maintenance({'hallName': req.body.hallName,
-    'city': req.body.city, 'street': req.body.street,
-    'houseNumber': req.body.houseNumber, 'startTime': req.body.startTime,
-    'endTime': req.body.endTime, 'activity': req.body.activity,
-    'description': req.body.description, 'room': req.body.room});
+    'sportsHallId': req.body.sportsHallId, 'maintenanceType': req.body.maintenanceType,
+    'maintenanceObject': req.body.maintenanceObject,
+    'endTime': req.body.endTime, 'startTime': req.body.startTime,
+    'description': req.body.description});
   console.log(req.body);
 
   maintenance.save()
