@@ -4,19 +4,18 @@ var request = require('request');
 //Pas deze webUrl aan aan jouw lokale port
 const webUrl = 'http://localhost:3000/api/v1/';
 
-const Maintenance = require('../models/sportsHallMaintenance');
+const ClosingDay = require('../models/sportsHallClosed');
 
-routes.post('/maintenance', function(req, res) {
-  const maintenance = new Maintenance({
-    'sportsHallId': req.body.sportsHallId, 'maintenanceType': req.body.maintenanceType,
-    'maintenanceObject': req.body.maintenanceObject,
+routes.post('/closingday', function(req, res) {
+  const closingDay = new ClosingDay({
+    'sportsHallId': req.body.sportsHallId,
     'endTime': req.body.endTime, 'startTime': req.body.startTime,
     'description': req.body.description});
   console.log(req.body);
 
-  maintenance.save()
-    .then((maintenance) => {
-      res.status(200).json({message: 'New maintenance created'});
+  closingDay.save()
+    .then((closingDay) => {
+      res.status(200).json({message: 'New closingday created'});
     })
     .catch((error) =>
         console.log(error));
