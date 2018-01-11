@@ -6,6 +6,15 @@ const webUrl = 'http://localhost:3000/api/v1/';
 
 const Maintenance = require('../models/sportsHallMaintenance');
 
+routes.get('/maintenance', function(req, res) {
+  res.contentType('application/json');
+  Maintenance.find({})
+    .then((maintenances) => {
+      res.status(200).json(maintenances);
+    })
+    .catch((error) => res.status(400).json(error));
+});
+
 routes.post('/maintenance', function(req, res) {
   const maintenance = new Maintenance({
     'sportsHallId': req.body.sportsHallId, 'maintenanceType': req.body.maintenanceType,
