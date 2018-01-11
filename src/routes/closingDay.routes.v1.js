@@ -6,6 +6,15 @@ const webUrl = 'http://localhost:3000/api/v1/';
 
 const ClosingDay = require('../models/sportsHallClosed');
 
+routes.get('/closingday', function(req, res) {
+  res.contentType('application/json');
+  ClosingDay.find({})
+    .then((closingDays) => {
+      res.status(200).json(closingDays);
+    })
+    .catch((error) => res.status(400).json(error));
+});
+
 routes.post('/closingday', function(req, res) {
   const closingDay = new ClosingDay({
     'sportsHallId': req.body.sportsHallId,
