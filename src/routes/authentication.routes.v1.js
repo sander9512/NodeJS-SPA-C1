@@ -10,7 +10,7 @@ const webUrl = 'http://localhost:3000/api/v1/';
 
 // registreer een user
 routes.post('/register', function(req, res) {
-  const user = new User({'email': req.body._email, 'password': req.body._password, 'role': req.body._role});
+  const user = new User({'email': req.body._email, 'password': req.body._password, 'role': req.body._role, 'propID': req.body._propID});
     console.log(req.body);
 
   user.save()

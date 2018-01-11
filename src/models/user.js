@@ -17,6 +17,9 @@ const UserSchema = new Schema({
         role: {
             type: String,
             required: true
+        },
+        propID: {
+            type: Number
         }
     }
 );

@@ -99,6 +99,15 @@ routes.get('/bookings/hall/:id', function (req, res) {
         }
     })
 
-})
+});
+routes.get('/proprietors', function (req, res) {
+    request(webUrl + 'Proprietors', { json: true}, (err, body) => {
+        if(err) {
+            return console.log(err)
+        } else {
+            res.status(200).json(body.body);
+        }
+    })
+});
 
 module.exports = routes;
