@@ -18,14 +18,16 @@ const MaintenanceSchema = new Schema({
     type: String,
     required: true
   },
+    date: {
+        type: Date,
+        required: true
+    },
   // 11/20/2014 04:11 - formaat
   startTime: {
-    type: Date,
-    default: Date.now
+    type: String,
   },
   endTime: {
-    type: Date,
-    required: true
+    type: String,
   },
   description: {
     type: String,
