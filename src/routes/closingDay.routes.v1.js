@@ -6,9 +6,9 @@ const webUrl = 'http://localhost:3000/api/v1/';
 
 const ClosingDay = require('../models/sportsHallClosed');
 
-routes.get('/closingday', function(req, res) {
+routes.get('/closingday/:id', function(req, res) {
   res.contentType('application/json');
-  ClosingDay.find({})
+  ClosingDay.find({'sportsHallId': req.params.id})
     .then((closingDays) => {
       res.status(200).json(closingDays);
     })
@@ -16,11 +16,16 @@ routes.get('/closingday', function(req, res) {
 });
 
 routes.post('/closingday', function(req, res) {
-  const closingDay = new ClosingDay({
-    'sportsHallId': req.body.sportsHallId,
-    'endTime': req.body.endTime, 'startTime': req.body.startTime,
-    'description': req.body.description});
-  console.log(req.body);
+  let closingDay;
+    console.log(req.body);
+    if(req.body._allDay === false) {
+    closingDay = new ClosingDay({'sportsHallId': req.body._sportsHallId, 'date': req.body._date,
+        'startTime': req.body._startTime, 'endTime': req.body._endTime, 'allDay': req.body._allDay, 'description': req.body._description})
+  } else if(req.body._allDay === true) {
+      closingDay = new ClosingDay({'sportsHallId': req.body._sportsHallId, 'date': req.body._date,
+           'allDay': req.body._allDay, 'description': req.body._description})
+  }
+  console.log(closingDay);
 
   closingDay.save()
     .then((closingDay) => {

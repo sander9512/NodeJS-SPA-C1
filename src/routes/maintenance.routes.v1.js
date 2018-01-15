@@ -27,7 +27,8 @@ routes.post('/maintenance/filter/:id', function (req, res) {
     Maintenance.find({date: {
         $gte: minDate,
         $lte: maxDate
-    }})
+    },
+    sportsHallId: req.params.id})
         .then((maintenances) => {
       res.status(200).json(maintenances);
         })

@@ -52,6 +52,18 @@ routes.get('/halls/:id/times', function (req, res) {
         }
     })
 });
+//Openingstijden wijzigen
+routes.put('/times/:id', function (req, res) {
+    const time = {'TimeOpen': req.body._timeOpen, 'TimeClose': req.body._timeClose };
+    request({url: webUrl + 'OpeningTimes/' + req.params.id, method: 'PUT', json: time}, (err, body) => {
+        console.log('body', time);
+        if(err) {
+            return console.log(err);
+        } else {
+            res.status(200).json(body);
+        }
+    })
+});
 //faciliteiten van een sporthal ophalen, nog te maken in web api
 routes.get('/halls/:id/facilities', function (req, res) {
     request(webUrl + 'Halls/' + req.params.id + '/Facilities', { json: true}, (err, body) => {

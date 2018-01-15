@@ -8,15 +8,21 @@ const SportsHallClosedSchema = new Schema({
     type: Number,
     required: true
   },
+        date: {
+        type: Date,
+        required: true
+    },
   // 11/20/2014 04:11 - formaat
   startTime: {
-    type: Date,
-    default: Date.now
+    type: String
   },
   endTime: {
-    type: Date,
-    required: true
+    type: String
   },
+    allDay: {
+        type: Boolean,
+        required: true
+    },
   description: {
     type: String,
     required: true
