@@ -10,8 +10,13 @@ const webUrl = 'http://localhost:3000/api/v1/';
 
 // registreer een user
 routes.post('/register', function(req, res) {
-  const user = new User({'email': req.body._email, 'password': req.body._password, 'role': req.body._role, 'propID': req.body._propID});
-    console.log(req.body);
+    let user;
+    if(req.body._role === 'Personeel') {
+        user = new User({'email': req.body._email, 'name': req.body._name, 'password': req.body._password, 'role': req.body._role, 'hallID': req.body._hallID});
+    } else if(req.body._role === 'Verhuurder') {
+        user = new User({'email': req.body._email, 'name': req.body._name, 'password': req.body._password, 'role': req.body._role, 'propID': req.body._propID});
+    }
+    console.log(user);
 
   user.save()
     .then((user) => {
