@@ -7,10 +7,6 @@ const WorkdaySchema = new Schema({
         ref: 'User',
         required: true
     },
-    userId: {
-        type: String,
-        required: true
-    },
     startTime: {
         type: String,
     },
