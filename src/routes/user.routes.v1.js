@@ -17,5 +17,15 @@ routes.get('/staff', function(req, res) {
 });
 
 
+routes.get('staff/:hallId', function(req, res) {
+  res.contentType('application/json');
+  var query = User.findOne({ 'hallID': req.params.hallId });
+
+  User.find(query)
+    .then((staff) => {
+      res.status(200).json(staff);
+    })
+    .catch((error) => res.status(400).json(error));
+});
 
 module.exports = routes;

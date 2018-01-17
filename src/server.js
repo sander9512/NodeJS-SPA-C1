@@ -6,7 +6,7 @@ var authroutes_v1 = require('./routes/authentication.routes.v1');
 var sporthalroutes_v1 = require('./routes/sporthalhuren.routes.v1');
 var maintenanceroutes_v1 = require('./routes/maintenance.routes.v1');
 var closingdayroutes_v1 = require('./routes/closingDay.routes.v1');
-var workingdayroutes_v1 = require('./routes/workingDay.routes.v1');
+var workingdayroutes_v1 = require('./routes/workdays.routes.v1');
 var userroutes_v1 = require('./routes/user.routes.v1');
 
 var config = require('./config/env/env');
