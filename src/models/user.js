@@ -10,6 +10,9 @@ const UserSchema = new Schema({
             required: true,
             trim: true
         },
+        name: {
+            type: String
+        },
         password: {
             type: String,
             required: true,
@@ -19,6 +22,9 @@ const UserSchema = new Schema({
             required: true
         },
         propID: {
+            type: Number
+        },
+        hallID: {
             type: Number
         }
     }
