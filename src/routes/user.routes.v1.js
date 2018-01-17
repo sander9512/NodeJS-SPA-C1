@@ -7,7 +7,7 @@ const webUrl = 'http://localhost:3000/api/v1/';
 
 routes.get('/staff', function(req, res) {
   res.contentType('application/json');
-  var query = User.findOne({ 'role': 'Personeel'});
+  var query = User.find({ 'role': 'Personeel'});
 
   User.find(query)
     .then((staff) => {
@@ -17,9 +17,10 @@ routes.get('/staff', function(req, res) {
 });
 
 
-routes.get('staff/:hallId', function(req, res) {
+routes.get('/staff/:hallId', function(req, res) {
   res.contentType('application/json');
-  var query = User.findOne({ 'hallID': req.params.hallId });
+  var query = User.find({ 'hallID': req.params.hallId,
+  'role': 'Personeel'});
 
   User.find(query)
     .then((staff) => {
