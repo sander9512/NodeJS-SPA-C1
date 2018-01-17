@@ -6,6 +6,7 @@ var authroutes_v1 = require('./routes/authentication.routes.v1');
 var sporthalroutes_v1 = require('./routes/sporthalhuren.routes.v1');
 var maintenanceroutes_v1 = require('./routes/maintenance.routes.v1');
 var closingdayroutes_v1 = require('./routes/closingDay.routes.v1');
+var userroutes_v1 = require('./routes/user.routes.v1');
 var config = require('./config/env/env');
 
 var mongodb = require('./config/mongo.db');
@@ -45,6 +46,7 @@ app.use('/api/v1', sporthalroutes_v1);
 app.use('/api/v1', authroutes_v1);
 app.use('/api/v1', maintenanceroutes_v1);
 app.use('/api/v1', closingdayroutes_v1);
+app.use('/api/v1', userroutes_v1);
 
 // error handler express-jwt errors
 app.use(function (err, req, res, next) {
