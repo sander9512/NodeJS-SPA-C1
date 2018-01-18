@@ -7,14 +7,15 @@ const WorkdaySchema = new Schema({
         ref: 'User',
         required: true
     },
+    text: {
+        type: String
+    },
     startTime: {
         type: String,
+        required: true
     },
     endTime: {
         type: String,
-    },
-    date: {
-        type: Date,
         required: true
     }
 });

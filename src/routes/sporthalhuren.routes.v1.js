@@ -2,7 +2,7 @@ var express = require('express');
 var routes = express.Router();
 var request = require('request');
 //Pas deze webUrl aan aan jouw lokale port
-const webUrl = 'http://localhost:49225/api/v1/';
+const webUrl = 'http://localhost:50719/api/v1/';
 
 routes.get('/halls', function (req, res) {
     request(webUrl + 'Halls', { json: true}, (err, body) => {

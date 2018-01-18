@@ -24,6 +24,7 @@ const MaintenanceSchema = new Schema({
     },
   // 11/20/2014 04:11 - formaat
   startTime: {
+
     type: String,
   },
   endTime: {

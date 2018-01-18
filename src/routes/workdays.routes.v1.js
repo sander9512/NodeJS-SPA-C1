@@ -17,9 +17,13 @@ routes.get('/workdays', function(req, res) {
 
 routes.post('/workdays', function(req, res) {
     res.contentType('application/json');
-    const workdayProps = req.body;
+    const body = req.body;
+    console.log(body);
+    const workday = new Workday({'userId': body._userID, 'text': body._text, 'startTime': body._startTime,
+        'endTime': body._endTime});
+    console.log(workday);
 
-    Workday.create(workdayProps)
+    Workday.create(workday)
         .then(workday => {
             workday.save();
             res.send(workday)
@@ -27,6 +31,6 @@ routes.post('/workdays', function(req, res) {
         .catch((error) => {
             res.status(400).json(error);
         });
-0});
+    });
 
 module.exports = routes;
