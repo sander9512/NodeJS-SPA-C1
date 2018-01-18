@@ -51,5 +51,15 @@ routes.post('/workdays', function(req, res) {
             res.status(400).json(error);
         });
     });
+routes.delete('/workdays/:id', function (req, res) {
+    const id = req.params.id;
+    Workday.findByIdAndRemove(id)
+        .then(() => {
+        res.status(200).json({message: 'Werkdag met id ' + id + ' verwijderd'})
+        })
+        .catch((error) => {
+        res.status(400).json(error);
+        })
+});
 
 module.exports = routes;
