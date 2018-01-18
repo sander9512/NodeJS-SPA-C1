@@ -15,6 +15,17 @@ routes.get('/workdays', function(req, res) {
         .catch((error) => res.status(400).json(error));
 });
 
+routes.get('/workdays/userId', function(req, res) {
+  res.contentType('application/json');
+  var query = Workday.find({ 'userId': req.params.userId });
+
+  User.find(query)
+    .then((workdays) => {
+      res.status(200).json(workdays);
+    })
+    .catch((error) => res.status(400).json(error));
+});
+
 routes.post('/workdays', function(req, res) {
     res.contentType('application/json');
     const workdayProps = req.body;
