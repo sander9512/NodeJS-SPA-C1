@@ -7,6 +7,9 @@ const WorkdaySchema = new Schema({
         ref: 'User',
         required: true
     },
+    hallId: {
+        type: Number
+    },
     text: {
         type: String
     },

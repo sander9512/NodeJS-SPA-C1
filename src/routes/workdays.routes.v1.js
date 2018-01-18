@@ -15,22 +15,30 @@ routes.get('/workdays', function(req, res) {
         .catch((error) => res.status(400).json(error));
 });
 
-routes.get('/workdays/userId', function(req, res) {
+routes.get('/workdays/user/:userId', function(req, res) {
   res.contentType('application/json');
-  var query = Workday.find({ 'userId': req.params.userId });
 
-  User.find(query)
-    .then((workdays) => {
+ Workday.find({ 'userId': req.params.userId })
+ .then((workdays) => {
       res.status(200).json(workdays);
     })
     .catch((error) => res.status(400).json(error));
+});
+routes.get('/workdays/hall/:hallId', function(req, res) {
+    res.contentType('application/json');
+
+    Workday.find({'hallId': req.params.hallId})
+        .then((workdays) => {
+            res.status(200).json(workdays);
+        })
+        .catch((error) => res.status(400).json(error));
 });
 
 routes.post('/workdays', function(req, res) {
     res.contentType('application/json');
     const body = req.body;
     console.log(body);
-    const workday = new Workday({'userId': body._userID, 'text': body._text, 'startTime': body._startTime,
+    const workday = new Workday({'userId': body._userID, 'hallId': body._hallID, 'text': body._text, 'startTime': body._startTime,
         'endTime': body._endTime});
     console.log(workday);
 
