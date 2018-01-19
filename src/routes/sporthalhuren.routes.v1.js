@@ -93,6 +93,17 @@ routes.get('/bookings', function (req, res) {
         }
     })
 });
+//bookings met huidige datum ophalen
+routes.get('/bookings/date/:id', function (req, res) {
+    console.log(req.params.id);
+    request(webUrl + 'Bookings/Date/' + req.params.id, {json: true}, (err, body) => {
+        if(err) {
+            return console.log(err);
+        } else {
+            res.status(200).json(body.body);
+        }
+    })
+})
 routes.get('/bookings/:id', function (req, res) {
     request(webUrl + 'Bookings/' + req.params.id, { json: true}, (err, body) => {
         if(err) {
